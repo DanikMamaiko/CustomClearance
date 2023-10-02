@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат расчета</title>
+</head>
+<body>
+    <h1>Результат расчета</h1>
+
+    <p>Возраст автомобиля: <span th:text="${age}"></span></p>
+    <p>Тип двигателя: <span th:text="${engineType}"></span></p>
+    <p>Объем двигателя: <span th:text="${volume}"></span></p>
+    <p>Стоимость автомобиля: <span th:text="${cost}"></span></p>
+    <p>Авто растамаживает: <span th:text="${entity}"></span></p>
+
+    <p th:if="${withPrivileges}">Есть льготы на растаможку</p>
+    <p th:unless="${withPrivileges}">Нет льгот на растаможку</p>
+
+    <p><b>Стоимость растаможки: <span th:text="${clearanceCost}"></span></b></p>
+
+    <a href="/">Вернуться на главную страницу</a>
+</body>
+</html>

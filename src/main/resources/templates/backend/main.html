@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Калькулятор растаможки</h1>
+
+    <form th:action="calculate" th:method="GET">
+        <label for="CarAge">Car age:</label>
+        <select name="age" id="CarAge">
+            <option th:each="age : ${carAgeList}" th:text="${age}"></option>
+        </select>
+
+        <br>
+
+        <p>Engine Type</p>
+        <label>
+            <input type="radio" name="engineType" th:value="'Топливо'" th:checked="${engineType}"> Топливо
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="engineType" th:value="'Электро'" th:checked="${engineType}"> Электро
+        </label>
+
+        <br><br>
+
+        <label for="EngineVolume">Engine Volume:</label>
+        <input type="text" id="EngineVolume" name="volume" th:value="${volume}" />
+
+        <br><br>
+
+        <label for="CarCost">Car Cost:</label>
+        <input type="text" id="CarCost" name="cost" th:value="${cost}" />
+
+        <br>
+
+        <p>Авто растамаживает:</p>
+        <label>
+            <input type="radio" name="entity" th:value="'Физ.лицо'" th:checked="${entity}"> Физ.лицо
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="entity" th:value="'Юр.лицо'" th:checked="${entity}"> Юр.лицо
+        </label>
+
+        <br>
+
+        <p>Вид топлива</p>
+        <label>
+            <input type="radio" name="fuel" th:value="'Бензин'" th:checked="${fuel}"> Бензин
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="fuel" th:value="'Дизель'" th:checked="${fuel}"> Дизель
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="checkbox" name="withPrivileges" th:checked="${withPrivileges}"> Есть льготы на растаможку
+        </label>
+
+        <br><br>
+
+        <input type="submit" value="Рассчитать" />
+
+    </form>
+
+</body>
+</html>
